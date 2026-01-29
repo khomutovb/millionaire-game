@@ -1,0 +1,25 @@
+{
+    "money": [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000],
+    "questions": [
+    {
+      "id": "q1",
+      "text": "How old your elder brother was 10 years before you was born, mate?",
+      "answers": [
+        { "id": "a", "text": "10 years", "isCorrect": false },
+        { "id": "b", "text": "11 years", "isCorrect": true },
+        { "id": "c", "text": "12 years", "isCorrect": false },
+        { "id": "d", "text": "14 years", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "How old your elder brother was 10 years before you was born, mate?",
+      "answers": [
+        { "id": "a", "text": "10 years", "isCorrect": false },
+        { "id": "b", "text": "11 years", "isCorrect": true },
+        { "id": "c", "text": "12 years", "isCorrect": false },
+        { "id": "d", "text": "14 years", "isCorrect": true }
+      ]
+    }
+  ]
+}
