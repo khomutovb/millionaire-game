@@ -61,6 +61,10 @@
   fill: var(--color-error-bg);
 }
 
+.answer[data-selected="false"][data-correct="false"]:disabled {
+  opacity: 0.5;
+}
+
 @media (hover: hover) {
   .answer:hover:not(:disabled):not([data-selected="true"]):not(
       [data-reveal="true"]
