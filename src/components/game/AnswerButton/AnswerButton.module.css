@@ -1,0 +1,106 @@
+.answer {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  font-size: 14px;
+  background: transparent;
+  position: relative;
+  padding: 0;
+  color: var(--color-text-primary);
+}
+
+.answerText {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.answerText span {
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-right: 8px;
+}
+
+.answerBg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.answerBg svg {
+  height: 100%;
+  width: 100%;
+}
+
+.answerBg path {
+  transition:
+    fill 0.3s,
+    stroke 0.3s;
+}
+
+.answer[data-selected="true"][data-reveal="false"] .answerBg path {
+  stroke: var(--color-accent);
+  fill: var(--color-bg-secondary);
+}
+
+.answer[data-correct="true"] .answerBg path {
+  animation: pulse 1s;
+  stroke: var(--color-success);
+  fill: var(--color-success-bg);
+}
+
+.answer[data-wrong="true"] .answerBg path {
+  stroke: var(--color-error);
+  fill: var(--color-error-bg);
+}
+
+@media (hover: hover) {
+  .answer:hover:not(:disabled):not([data-selected="true"]):not(
+      [data-reveal="true"]
+    )
+    .answerBg
+    path {
+    stroke: var(--color-accent);
+  }
+}
+
+@media (min-width: 768px) {
+  .answer {
+    font-size: 20px;
+    min-height: 72px;
+  }
+
+  .answer::before {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .answer {
+    width: 50%;
+    max-width: 421px;
+  }
+  .answerText {
+    padding: 0 48px;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  50% {
+    stroke: var(--black-40);
+    fill: var(--white-100);
+  }
+  25%,
+  100% {
+    stroke: var(--color-success);
+    fill: var(--color-success-bg);
+  }
+}

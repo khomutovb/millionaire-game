@@ -1,0 +1,9 @@
+.moneyList {
+  flex-direction: column-reverse;
+  gap: 8px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  min-height: min-content;
+}

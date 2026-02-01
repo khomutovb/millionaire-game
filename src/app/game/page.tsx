@@ -1,69 +1,49 @@
 "use client";
 
-import { useMemo, useState } from "react";
-
-import { gameConfig } from "@/game/config";
-import { answerQuestion, startGame } from "@/game/state";
-import Image from "next/image";
+import styles from "./page.module.css";
+import { useState } from "react";
+import { FinishScreen } from "@/components/game/FinishScreen/FinishScreen";
+import { useGame } from "@/hooks/useGame";
+import { GameBody } from "@/components/game/GameBody/GameBody";
+import { Sidebar } from "@/components/game/Sidebar/Sidebarr";
 
 export default function GamePage() {
-  const { questions, money } = useMemo(() => gameConfig, []);
-  const [state, setState] = useState(() => startGame());
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const question = questions[state.questionIndex];
+  const {
+    money,
+    state,
+    reveal,
+    question,
+    correctIds,
+    onTryAgain,
+    onAnswerClick,
+  } = useGame();
 
   if (state.status === "finished") {
-    return (
-      <main>
-        <div>
-          <Image
-            src="/hand-icon.svg"
-            alt="Thumbs up illustration"
-            width={624}
-            height={367}
-          />
-        </div>
-        <div>
-          <p>Total score:</p>
-          <p>${state.earned.toLocaleString()} earned</p>
-          <button type="button" onClick={() => setState(startGame())}>
-            Try again
-          </button>
-        </div>
-      </main>
-    );
+    return <FinishScreen earned={state.earned} onTryAgain={onTryAgain} />;
   }
 
+  if (!question) return null;
+
   return (
-    <main>
-      <div>
-        <h2>{question.text}</h2>
-        <div>
-          {question.answers.map((answer) => (
-            <button
-              key={answer.id}
-              data-selected={state.selectedAnswerIds.includes(answer.id)}
-              onClick={() =>
-                setState(
-                  answerQuestion({
-                    state,
-                    questions,
-                    money,
-                    answerId: answer.id,
-                  }),
-                )
-              }
-            >
-              <span>{answer.id.toUpperCase()}</span> {answer.text}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div>
-        {money.map((item) => (
-          <div key={item}>${item.toLocaleString()}</div>
-        ))}
-      </div>
+    <main className={styles.page}>
+      <GameBody
+        question={question}
+        isLocked={state.status !== "question"}
+        reveal={reveal}
+        selectedAnswerIds={state.selectedAnswerIds}
+        correctIds={correctIds}
+        onAnswerClick={onAnswerClick}
+        onOpenMenu={() => setIsSidebarOpen(true)}
+      />
+
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        money={money}
+        activeIndex={state.questionIndex}
+      />
     </main>
   );
 }

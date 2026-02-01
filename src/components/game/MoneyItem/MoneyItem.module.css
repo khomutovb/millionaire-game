@@ -1,0 +1,65 @@
+.moneyItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.moneyItemBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.moneyItemBg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--black-40);
+  inset: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.moneyItemBg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.moneyItemBg path {
+  transition: stroke 0.3s;
+}
+
+.moneyText {
+  position: relative;
+  z-index: 2;
+}
+
+.active .moneyItemBg path {
+  stroke: var(--color-accent);
+}
+.active .moneyItemBg::before {
+  background: var(--color-accent);
+}
+
+.active .moneyText {
+  color: var(--color-accent);
+}
+
+.passed .moneyText {
+  color: var(--black-40);
+}
+
+@media (min-width: 768px) {
+  .moneyItem {
+    font-size: 20px;
+    height: 40px;
+  }
+}

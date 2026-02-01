@@ -1,6 +1,9 @@
 {
-    "money": [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000],
-    "questions": [
+  "money": [
+    500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000,
+    1000000
+  ],
+  "questions": [
     {
       "id": "q1",
       "text": "How old your elder brother was 10 years before you was born, mate?",
@@ -13,12 +16,112 @@
     },
     {
       "id": "q2",
-      "text": "How old your elder brother was 10 years before you was born, mate?",
+      "text": "Which of the following numbers are multiples of 8?",
       "answers": [
-        { "id": "a", "text": "10 years", "isCorrect": false },
-        { "id": "b", "text": "11 years", "isCorrect": true },
-        { "id": "c", "text": "12 years", "isCorrect": false },
-        { "id": "d", "text": "14 years", "isCorrect": true }
+        { "id": "a", "text": "16", "isCorrect": true },
+        { "id": "b", "text": "24", "isCorrect": true },
+        { "id": "c", "text": "18", "isCorrect": false },
+        { "id": "d", "text": "30", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Which of the following are fruits?",
+      "answers": [
+        { "id": "a", "text": "Apple", "isCorrect": true },
+        { "id": "b", "text": "Banana", "isCorrect": true },
+        { "id": "c", "text": "Pear", "isCorrect": true },
+        { "id": "d", "text": "Potato", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Which planet is known as the Red Planet?",
+      "answers": [
+        { "id": "a", "text": "Venus", "isCorrect": false },
+        { "id": "b", "text": "Mars", "isCorrect": true },
+        { "id": "c", "text": "Jupiter", "isCorrect": false },
+        { "id": "d", "text": "Saturn", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "What is the result of 9 × 7?",
+      "answers": [
+        { "id": "a", "text": "56", "isCorrect": false },
+        { "id": "b", "text": "63", "isCorrect": true },
+        { "id": "c", "text": "72", "isCorrect": false },
+        { "id": "d", "text": "69", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "Which language is primarily used for styling web pages?",
+      "answers": [
+        { "id": "a", "text": "HTML", "isCorrect": false },
+        { "id": "b", "text": "JavaScript", "isCorrect": false },
+        { "id": "c", "text": "CSS", "isCorrect": true },
+        { "id": "d", "text": "Python", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "How many minutes are there in one hour?",
+      "answers": [
+        { "id": "a", "text": "30", "isCorrect": false },
+        { "id": "b", "text": "60", "isCorrect": true },
+        { "id": "c", "text": "90", "isCorrect": false },
+        { "id": "d", "text": "120", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Which shape has exactly three sides?",
+      "answers": [
+        { "id": "a", "text": "Square", "isCorrect": false },
+        { "id": "b", "text": "Triangle", "isCorrect": true },
+        { "id": "c", "text": "Rectangle", "isCorrect": false },
+        { "id": "d", "text": "Circle", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "What does HTTP stand for?",
+      "answers": [
+        { "id": "a", "text": "HyperText Transfer Protocol", "isCorrect": true },
+        { "id": "b", "text": "HighText Transmission Process", "isCorrect": false },
+        {"id": "c", "text": "Hyper Transfer Text Program", "isCorrect": false },
+        { "id": "d", "text": "Home Tool Transfer Protocol", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "If today is Monday, what day will it be after 9 days?",
+      "answers": [
+        { "id": "a", "text": "Tuesday", "isCorrect": false },
+        { "id": "b", "text": "Wednesday", "isCorrect": true },
+        { "id": "c", "text": "Thursday", "isCorrect": false },
+        { "id": "d", "text": "Friday", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "Which data type represents true or false values?",
+      "answers": [
+        { "id": "a", "text": "String", "isCorrect": false },
+        { "id": "b", "text": "Number", "isCorrect": false },
+        { "id": "c", "text": "Boolean", "isCorrect": true },
+        { "id": "d", "text": "Object", "isCorrect": false }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "What is the capital of France?",
+      "answers": [
+        { "id": "a", "text": "Berlin", "isCorrect": false },
+        { "id": "b", "text": "Madrid", "isCorrect": false },
+        { "id": "c", "text": "Paris", "isCorrect": true },
+        { "id": "d", "text": "Rome", "isCorrect": false }
       ]
     }
   ]

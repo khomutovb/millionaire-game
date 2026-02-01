@@ -1,0 +1,25 @@
+.buttonContainer {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .buttonContainer {
+    display: none;
+  }
+}

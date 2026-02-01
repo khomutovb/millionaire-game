@@ -1,10 +1,11 @@
 import type { Question } from "./types";
 
 export type GameState = {
-  status: "idle" | "question" | "finished";
+  status: "idle" | "question" | "checking" | "finished";
   questionIndex: number;
   earned: number;
   selectedAnswerIds: string[];
+  lastAnswerCorrect?: boolean;
 };
 
 export const initialGameState: GameState = {
@@ -24,10 +25,12 @@ export function answerQuestion(params: {
   money: number[];
   answerId: string;
 }): GameState {
-  const { state, questions, money, answerId } = params;
+  const { state, questions, answerId } = params;
 
   const question = questions[state.questionIndex];
   if (!question) return { ...state, status: "finished" };
+
+  if (state.status !== "question") return state;
 
   const correctIds = question.answers
     .filter((answer) => answer.isCorrect)
@@ -47,21 +50,10 @@ export function answerQuestion(params: {
     nextSelectedAnswerIds.includes(id),
   );
 
-  if (!isCorrect) {
-    return {
-      ...state,
-      status: "finished",
-    };
-  }
-  const nextQuestionIndex = state.questionIndex + 1;
-  const nextEarned = money[state.questionIndex] ?? state.earned;
-  const hasNextQuestion = Boolean(questions[nextQuestionIndex]);
-
   return {
     ...state,
-    questionIndex: nextQuestionIndex,
-    selectedAnswerIds: [],
-    earned: nextEarned,
-    status: hasNextQuestion ? "question" : "finished",
+    selectedAnswerIds: nextSelectedAnswerIds,
+    status: "checking",
+    lastAnswerCorrect: isCorrect,
   };
 }
