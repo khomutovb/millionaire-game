@@ -22,7 +22,7 @@ export function startGame(): GameState {
 export function answerQuestion(params: {
   state: GameState;
   questions: Question[];
-  money: number[];
+  money: number[]
   answerId: string;
 }): GameState {
   const { state, questions, answerId } = params;
@@ -32,7 +32,7 @@ export function answerQuestion(params: {
 
   if (state.status !== "question") return state;
 
-  const correctIds = question.answers
+const correctIds = question.answers
     .filter((answer) => answer.isCorrect)
     .map((answer) => answer.id);
 

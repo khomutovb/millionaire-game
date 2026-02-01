@@ -27,6 +27,6 @@
     "vitest": "^4.0.18"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "next lint --fix"
+    "*.{js,jsx,ts,tsx}": "eslint"
   }
 }
